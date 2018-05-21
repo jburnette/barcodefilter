@@ -1,0 +1,903 @@
+Array
+(
+    [A] => Array
+        (
+            [A1] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [A2] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [A3] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [A4] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [A5] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [A6] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [A7] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [A8] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [A9] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [A10] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [A11] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [A12] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [H1] => Array
+                (
+                    [H1] => Array
+                        (
+                            [id] => 96447
+                            [0] => 96447
+                            [name] => >m180428_141622_42257R_c101419162550000001823307808281827_s1_p0/159787/ccs
+                            [1] => >m180428_141622_42257R_c101419162550000001823307808281827_s1_p0/159787/ccs
+                            [sequence] => GCGCTAGTGTGTACGACAGGAAACAGCTATGACAACCACATTATAAGAGCAGTGACAAATCAATATCAAGAACCAGATTTAATAACAGACAACCTGAATTTACAGAGCCAGCAAAACCTAAATTATTAGAATCCAATCCACCACCAATATACAATCCCTGCAATTTTGTTGCATCAAGAGATTGACAATGAGGAGAGAAAACAAGTAGATATTGAACAATATGAAGTAGGAGTATATTATTAACTCATCTTCACATTACCTGTTTTGTATGATCTAGCTCTTGCTCTACTTGTAACAGCTTTAAACGACACGATTCTAACTGTTGTATATGAGCCTGTTATGAAATGTCAGAAATCAGATGCTTGTTTGTTTTGTACATCTTTGAATGTATGTAGTATAAAAGTCCAAACCTTTTCTTCAAACACTCTTACGAGCAGCCTCTCGATTTTGCGCGAGACGTCTTTGCATCGCATGTTCATCACCTTATAAGCATAAAAAAAGGCAGCCAGACATCCAAAATTTGGAAGCAGGGACCCTCCTAATCTGCAGTGCAAAGTGAGTCCAAAATGTGGTTCTAAATGCTTTTCGATGTGACTCTACAAAGTTTGAGGCATAAGGAAAGAATGGGATGAATCGTCAATTTAGTTCATGAAATACTGATTGAGCAATTCGGTTCCTTCATTAACAAAATATCAAAATGGTCTCTGAAAGTAAAAAAATTATTGCATTAGTCCTTTCGGATTGGTCAACTTTTCAAAATGGATTAATTGATTGAAGTTTTTTTTTCTTTCAAAAGTATCAAATTGAACTTAACATGGCACATGCAGTAACTATCTAGGGTCCCTGCGTAGAACATAGTCCATACATGTTGATATGACGGTGGGTTGAACAAAATTAATGTGGTACCTTAATTATGTTGAAGCGACAAAGTGTAGCTTTTGCAAAATCACGATAGCTCACTGTGATTTTGACAACTCACCGCAATACCAAGCAAGTGCAACACAATCTTACCTTATTAGTAACTTTGTTAACTTCTTGGTGGTCATACTTGATAGATGTTCCAATATTCAAAGAAGCTCCTCTGACTATAGGTATTTAGCGCATAAAAGATATAATTAGTAGAAGAAAAATAGTCATTATCGTATATATATGCAAAAGACAAGTATAAATTTAGTAAACTTGGACACGAACTGATTATTTAACTTCATTTCAGGTTCATATACACTTGTATCACCATTACTCTGAAATGTTCTTCCCATATAGTAATTGGTGTATAGGATCATATACACCGATATTTCTTGAGGAAACAATTGAGAAGATGATGAAGGATCCATCTGGCCGTCGTTTTACAGCTCTGAGTCTCTAT
+                            [2] => GCGCTAGTGTGTACGACAGGAAACAGCTATGACAACCACATTATAAGAGCAGTGACAAATCAATATCAAGAACCAGATTTAATAACAGACAACCTGAATTTACAGAGCCAGCAAAACCTAAATTATTAGAATCCAATCCACCACCAATATACAATCCCTGCAATTTTGTTGCATCAAGAGATTGACAATGAGGAGAGAAAACAAGTAGATATTGAACAATATGAAGTAGGAGTATATTATTAACTCATCTTCACATTACCTGTTTTGTATGATCTAGCTCTTGCTCTACTTGTAACAGCTTTAAACGACACGATTCTAACTGTTGTATATGAGCCTGTTATGAAATGTCAGAAATCAGATGCTTGTTTGTTTTGTACATCTTTGAATGTATGTAGTATAAAAGTCCAAACCTTTTCTTCAAACACTCTTACGAGCAGCCTCTCGATTTTGCGCGAGACGTCTTTGCATCGCATGTTCATCACCTTATAAGCATAAAAAAAGGCAGCCAGACATCCAAAATTTGGAAGCAGGGACCCTCCTAATCTGCAGTGCAAAGTGAGTCCAAAATGTGGTTCTAAATGCTTTTCGATGTGACTCTACAAAGTTTGAGGCATAAGGAAAGAATGGGATGAATCGTCAATTTAGTTCATGAAATACTGATTGAGCAATTCGGTTCCTTCATTAACAAAATATCAAAATGGTCTCTGAAAGTAAAAAAATTATTGCATTAGTCCTTTCGGATTGGTCAACTTTTCAAAATGGATTAATTGATTGAAGTTTTTTTTTCTTTCAAAAGTATCAAATTGAACTTAACATGGCACATGCAGTAACTATCTAGGGTCCCTGCGTAGAACATAGTCCATACATGTTGATATGACGGTGGGTTGAACAAAATTAATGTGGTACCTTAATTATGTTGAAGCGACAAAGTGTAGCTTTTGCAAAATCACGATAGCTCACTGTGATTTTGACAACTCACCGCAATACCAAGCAAGTGCAACACAATCTTACCTTATTAGTAACTTTGTTAACTTCTTGGTGGTCATACTTGATAGATGTTCCAATATTCAAAGAAGCTCCTCTGACTATAGGTATTTAGCGCATAAAAGATATAATTAGTAGAAGAAAAATAGTCATTATCGTATATATATGCAAAAGACAAGTATAAATTTAGTAAACTTGGACACGAACTGATTATTTAACTTCATTTCAGGTTCATATACACTTGTATCACCATTACTCTGAAATGTTCTTCCCATATAGTAATTGGTGTATAGGATCATATACACCGATATTTCTTGAGGAAACAATTGAGAAGATGATGAAGGATCCATCTGGCCGTCGTTTTACAGCTCTGAGTCTCTAT
+                        )
+
+                )
+
+        )
+
+    [B] => Array
+        (
+            [A1] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [A2] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [A3] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [A4] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [A5] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [A6] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [A7] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [A8] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [A9] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [A10] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [A11] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [A12] => Array
+                (
+                    [A1] => Array
+                        (
+                        )
+
+                    [B1] => Array
+                        (
+                        )
+
+                    [C1] => Array
+                        (
+                        )
+
+                    [D1] => Array
+                        (
+                        )
+
+                    [E1] => Array
+                        (
+                        )
+
+                    [F1] => Array
+                        (
+                        )
+
+                    [G1] => Array
+                        (
+                        )
+
+                    [H1] => Array
+                        (
+                        )
+
+                )
+
+            [H1] => Array
+                (
+                    [H1] => Array
+                        (
+                            [id] => 96447
+                            [0] => 96447
+                            [name] => >m180428_141622_42257R_c101419162550000001823307808281827_s1_p0/159787/ccs
+                            [1] => >m180428_141622_42257R_c101419162550000001823307808281827_s1_p0/159787/ccs
+                            [sequence] => GCGCTAGTGTGTACGACAGGAAACAGCTATGACAACCACATTATAAGAGCAGTGACAAATCAATATCAAGAACCAGATTTAATAACAGACAACCTGAATTTACAGAGCCAGCAAAACCTAAATTATTAGAATCCAATCCACCACCAATATACAATCCCTGCAATTTTGTTGCATCAAGAGATTGACAATGAGGAGAGAAAACAAGTAGATATTGAACAATATGAAGTAGGAGTATATTATTAACTCATCTTCACATTACCTGTTTTGTATGATCTAGCTCTTGCTCTACTTGTAACAGCTTTAAACGACACGATTCTAACTGTTGTATATGAGCCTGTTATGAAATGTCAGAAATCAGATGCTTGTTTGTTTTGTACATCTTTGAATGTATGTAGTATAAAAGTCCAAACCTTTTCTTCAAACACTCTTACGAGCAGCCTCTCGATTTTGCGCGAGACGTCTTTGCATCGCATGTTCATCACCTTATAAGCATAAAAAAAGGCAGCCAGACATCCAAAATTTGGAAGCAGGGACCCTCCTAATCTGCAGTGCAAAGTGAGTCCAAAATGTGGTTCTAAATGCTTTTCGATGTGACTCTACAAAGTTTGAGGCATAAGGAAAGAATGGGATGAATCGTCAATTTAGTTCATGAAATACTGATTGAGCAATTCGGTTCCTTCATTAACAAAATATCAAAATGGTCTCTGAAAGTAAAAAAATTATTGCATTAGTCCTTTCGGATTGGTCAACTTTTCAAAATGGATTAATTGATTGAAGTTTTTTTTTCTTTCAAAAGTATCAAATTGAACTTAACATGGCACATGCAGTAACTATCTAGGGTCCCTGCGTAGAACATAGTCCATACATGTTGATATGACGGTGGGTTGAACAAAATTAATGTGGTACCTTAATTATGTTGAAGCGACAAAGTGTAGCTTTTGCAAAATCACGATAGCTCACTGTGATTTTGACAACTCACCGCAATACCAAGCAAGTGCAACACAATCTTACCTTATTAGTAACTTTGTTAACTTCTTGGTGGTCATACTTGATAGATGTTCCAATATTCAAAGAAGCTCCTCTGACTATAGGTATTTAGCGCATAAAAGATATAATTAGTAGAAGAAAAATAGTCATTATCGTATATATATGCAAAAGACAAGTATAAATTTAGTAAACTTGGACACGAACTGATTATTTAACTTCATTTCAGGTTCATATACACTTGTATCACCATTACTCTGAAATGTTCTTCCCATATAGTAATTGGTGTATAGGATCATATACACCGATATTTCTTGAGGAAACAATTGAGAAGATGATGAAGGATCCATCTGGCCGTCGTTTTACAGCTCTGAGTCTCTAT
+                            [2] => GCGCTAGTGTGTACGACAGGAAACAGCTATGACAACCACATTATAAGAGCAGTGACAAATCAATATCAAGAACCAGATTTAATAACAGACAACCTGAATTTACAGAGCCAGCAAAACCTAAATTATTAGAATCCAATCCACCACCAATATACAATCCCTGCAATTTTGTTGCATCAAGAGATTGACAATGAGGAGAGAAAACAAGTAGATATTGAACAATATGAAGTAGGAGTATATTATTAACTCATCTTCACATTACCTGTTTTGTATGATCTAGCTCTTGCTCTACTTGTAACAGCTTTAAACGACACGATTCTAACTGTTGTATATGAGCCTGTTATGAAATGTCAGAAATCAGATGCTTGTTTGTTTTGTACATCTTTGAATGTATGTAGTATAAAAGTCCAAACCTTTTCTTCAAACACTCTTACGAGCAGCCTCTCGATTTTGCGCGAGACGTCTTTGCATCGCATGTTCATCACCTTATAAGCATAAAAAAAGGCAGCCAGACATCCAAAATTTGGAAGCAGGGACCCTCCTAATCTGCAGTGCAAAGTGAGTCCAAAATGTGGTTCTAAATGCTTTTCGATGTGACTCTACAAAGTTTGAGGCATAAGGAAAGAATGGGATGAATCGTCAATTTAGTTCATGAAATACTGATTGAGCAATTCGGTTCCTTCATTAACAAAATATCAAAATGGTCTCTGAAAGTAAAAAAATTATTGCATTAGTCCTTTCGGATTGGTCAACTTTTCAAAATGGATTAATTGATTGAAGTTTTTTTTTCTTTCAAAAGTATCAAATTGAACTTAACATGGCACATGCAGTAACTATCTAGGGTCCCTGCGTAGAACATAGTCCATACATGTTGATATGACGGTGGGTTGAACAAAATTAATGTGGTACCTTAATTATGTTGAAGCGACAAAGTGTAGCTTTTGCAAAATCACGATAGCTCACTGTGATTTTGACAACTCACCGCAATACCAAGCAAGTGCAACACAATCTTACCTTATTAGTAACTTTGTTAACTTCTTGGTGGTCATACTTGATAGATGTTCCAATATTCAAAGAAGCTCCTCTGACTATAGGTATTTAGCGCATAAAAGATATAATTAGTAGAAGAAAAATAGTCATTATCGTATATATATGCAAAAGACAAGTATAAATTTAGTAAACTTGGACACGAACTGATTATTTAACTTCATTTCAGGTTCATATACACTTGTATCACCATTACTCTGAAATGTTCTTCCCATATAGTAATTGGTGTATAGGATCATATACACCGATATTTCTTGAGGAAACAATTGAGAAGATGATGAAGGATCCATCTGGCCGTCGTTTTACAGCTCTGAGTCTCTAT
+                        )
+
+                )
+
+        )
+
+)
