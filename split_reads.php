@@ -4,7 +4,7 @@ function split_read ($read, $positions, $insert_q) {
 	$count = count($positions);
 	switch($count) {
 		case 1: 
-			//store as is
+			//ignore, don't have both primers
 			break;
 		case 2: 
 			//get F or R for each primer
