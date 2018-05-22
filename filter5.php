@@ -1,5 +1,5 @@
 <?php
-require ("./split_reads.php");
+require ("./split_reads2.php");
 ini_set('memory_limit','300M');
 function primer_array($file_name) {
  	$file = fopen("./$file_name", "r") or die ("Cannot open primer file");
@@ -23,7 +23,7 @@ function primer_array($file_name) {
 /**
 	DB array [id][comment][sequence]
 **/
-$db = new PDO('sqlite:run5-4-2.sqlite');
+$db = new PDO('sqlite:../Databases/run5-4-2.sqlite');
 $select = "SELECT * FROM seqs";
 try {
 	$stmt = $db->prepare($select);

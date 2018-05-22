@@ -1,0 +1,25 @@
+CREATE TABLE "output" ( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, `plate_num` INTEGER, `rp` TEXT, `fp` TEXT, `fasta_id` INTEGER, `seq` TEXT )
+CREATE INDEX `out_index` ON `output` ( `plate_num` ASC, `rp` ASC, `fp` ASC )
+
+
+
+
+blastn -query transcripts.fa -out transcripts.blast.txt -task megablast -db refseq_rna -num_threads 12 -evalue 1e-10 -best_hit_score_edge 0.05 -best_hit_overhang 0.25 -outfmt 7 -perc_identity 50 -max_target_seqs 1 &
+
+
+
+blastn -query test_seq.fasta -subject forward_primers.fasta
+
+
+
+
+blastn -query test_seq.fasta -subject reverse_primers.fasta -outfmt "10 qstart qend"
+
+output
+
+fmt "10 qstart qend"
+1,33
+1,33
+388,419
+
+use exec($ommand, $output[])
