@@ -14,6 +14,7 @@ function split_read ($read, $positions, $insert_q) {
 			$second = substr($primers[1], 0, 1);
 			//test to see if F and R not RR or FF
 			if ($first != $second) {
+			
 				//check location of first primer. If <50 probably at the start and not middle.
 				if ($positions[$primers[0]] < 100) {
 					//store read full length in output table.
@@ -37,6 +38,7 @@ function split_read ($read, $positions, $insert_q) {
 			if ($count%2 != 0) {break;} //not an even list, ignore
 			$primers = array_keys($positions);
 			$count_seq = 1;
+			
 			while ($primers) {
 				//create "singleton" array 
 				$primers1 =  array_shift($primers);
@@ -61,6 +63,9 @@ function split_read ($read, $positions, $insert_q) {
 						$result = $insert_q->execute($insert_params);
 					} catch  (PDOException $ex) {die($ex);}
 					//echo "Stored read! \n";	
+					echo($read['name']);
+					die();
+					
 				} 
 				$count_seq++;
 			} //end while.
