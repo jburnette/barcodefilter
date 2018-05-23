@@ -37,7 +37,7 @@ $r_found = 0;
 $f_found = 0;
 $count=0;
 while ($seq = $stmt->fetch()) {
-	
+
 	$blast_result = blast_read($seq['sequence'], $primers);
 	print_r($blast_result);	
 	
