@@ -1,7 +1,7 @@
 <?php
 /****  Use BLAST to find primers.    ********/
 
-require ("./split_reads.php");
+require ("./split_reads3.php");
 require ("functions.php");
 ini_set('memory_limit','300M');
 
@@ -28,25 +28,40 @@ try {
 
 	1. Get read
 	2. Get read num from comment
-	3. run blast_read	array[0][0]->first hit, etc.
+	3. run blast_read	
 	4. 
 
 **/
-$found = 0;
-$r_found = 0;
-$f_found = 0;
+$GLOBALS['singleton'] = 0;
+$GLOBALS['multiple'] = 0;
+$GLOBALS['odds'] = 0;
+$GLOBALS['found'] = 0;
+
 $count=0;
 while ($seq = $stmt->fetch()) {
-
+	$positions = array();
 	$blast_result = blast_read($seq['sequence'], $primers);
-	print_r($blast_result);	
+	//print_r($blast_result);	
+	foreach ($blast_result as $result) {
+		list($key, $pos1, $pos2) = explode(",", $result);
+		#echo ($key. $pos1. $pos2);
+		$positions[$pos1] = array ($pos2, $key);
+		asort($positions);
+		//print_r($positions);
+		//print_r(array_keys($positions));
+		split_read($seq, $positions, $insert_stm);
 	
+	}
 	
-	
-
+	$count++;
+	echo ($count . "\n");
 	
 } //end sequence while loop
 
-echo "sequence count = " . $count . "\nRP = " . $r_found . "\nFP = " . $f_found . " " . "\nTotal pairs = " . $found . "\n";
+echo "Total sequence count = " . $count . 
+"Singles = " . $GLOBALS['singleton'] ."\n". 
+"Multpiles = " . $GLOBALS['multiple'] ."\n".
+"Odds = " . $GLOBALS['odds'] ."\n". 
+"Total stored = " . $GLOBALS['found'] ."\n";
 
 echo "********Finished********\n\n";

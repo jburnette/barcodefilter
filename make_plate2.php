@@ -13,7 +13,7 @@ try {
 	die ($ex);
 }
 $select_num_seqs = "SELECT COUNT(*) FROM output WHERE output.plate_num = :plate AND output.rp = :rp AND output.fp = :fp";
-echo "$";
+
 try {
 	$select_num_seqs_stmt = $db->prepare($select_num_seqs);
 } catch (PODExecption $ex) {
@@ -22,7 +22,7 @@ try {
 $plates_array = array();
 $plate_num_array = array();
 while ($plate_fetch = $select_plates_stmt->fetch()) {
-echo "!";
+
 	$plate = $plate_fetch['plate_num'];
 	$table_num = '';
 	$table = '';
