@@ -5,7 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 $db = new PDO('sqlite:../databases/run5-4-2.sqlite'); 
 //Get number of plates in table.
-$select_plates = "SELECT DISTINCT(plate_num) FROM output WHERE 1";
+$select_plates = "SELECT DISTINCT(plate_num) FROM output WHERE 1 ORDER BY plate_num";
 try {
 	$select_plates_stmt = $db->prepare($select_plates);
 	$result = $select_plates_stmt->execute();
@@ -13,7 +13,7 @@ try {
 	die ($ex);
 }
 $select_num_seqs = "SELECT COUNT(*) FROM output WHERE output.plate_num = :plate AND output.rp = :rp AND output.fp = :fp";
-echo "$";
+//echo "$";
 try {
 	$select_num_seqs_stmt = $db->prepare($select_num_seqs);
 } catch (PODExecption $ex) {
@@ -22,7 +22,7 @@ try {
 $plates_array = array();
 $plate_num_array = array();
 while ($plate_fetch = $select_plates_stmt->fetch()) {
-echo "!";
+//echo "!";
 	$plate = $plate_fetch['plate_num'];
 	$table_num = '';
 	$table = '';

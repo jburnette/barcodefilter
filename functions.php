@@ -24,7 +24,7 @@ function blast_read($read, $primer_file) {
 	#echo $seq_out . "\n";
 	file_put_contents("seq.fasta", $seq_out);
 	$blast_command = 'blastn -query seq.fasta ';
-	$blast_command .= '-subject plate_primers.fasta -outfmt "10 sseqid qstart qend"';
+	$blast_command .= '-subject plate_primers.fasta -outfmt "10 sseqid qstart qend length"';
 	$result = array();
 	exec($blast_command, $result);
 	//print_r($result);

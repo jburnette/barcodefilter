@@ -12,6 +12,8 @@ $primers = 'plate_primers.fasta';
 **/
 $db = new PDO('sqlite:../Databases/run5-4-2.sqlite');
 $select = "SELECT * FROM seqs";
+//$select = "SELECT * FROM seqs WHERE id IN (94347, 96349, 96351, 96394)";
+//$select = "SELECT * FROM seqs WHERE id =96351";
 try {
 	$stmt = $db->prepare($select);
 	$result = $stmt->execute();
@@ -43,22 +45,22 @@ while ($seq = $stmt->fetch()) {
 	$blast_result = blast_read($seq['sequence'], $primers);
 	//print_r($blast_result);	
 	foreach ($blast_result as $result) {
-		list($key, $pos1, $pos2) = explode(",", $result);
+		list($key, $pos1, $pos2, $length) = explode(",", $result);
 		#echo ($key. $pos1. $pos2);
 		$positions[$pos1] = array ($pos2, $key);
 		asort($positions);
 		//print_r($positions);
-		//print_r(array_keys($positions));
-		split_read($seq, $positions, $insert_stm);
-	
+		//print_r(array_keys($positions));	
 	}
-	
-	$count++;
-	echo ($count . "\n");
-	
+	//print_r($positions);
+	if ($length>20) {
+		split_read($seq, $positions, $insert_stm);
+		$count++;
+		echo ($count . "\n");
+	}
 } //end sequence while loop
 
-echo "Total sequence count = " . $count . 
+echo "Total sequence count = " . $count . "\n". 
 "Singles = " . $GLOBALS['singleton'] ."\n". 
 "Multpiles = " . $GLOBALS['multiple'] ."\n".
 "Odds = " . $GLOBALS['odds'] ."\n". 

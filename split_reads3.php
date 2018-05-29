@@ -3,6 +3,7 @@ function split_read ($read, $positions, $insert_q) {
 	//asort($positions);			//ensure array is sorted.
 	$count = count($positions);
 	switch($count) {
+	
 		case 1: 
 			//ignore, don't have both primers
 			$GLOBALS['odds']++;
@@ -16,6 +17,7 @@ function split_read ($read, $positions, $insert_q) {
 				if ($primer_pair_info["first_loc"] < 100) {
 					
 					$length = $primer_pair_info["sec_loc"] - $primer_pair_info["first_loc"] +1;
+					
 					$read_num = get_read_num ($read['name']);
 					$seq = substr($read['sequence'], $primer_pair_info["first_loc"], $length);
 					//store read full length in output table.
@@ -31,12 +33,13 @@ function split_read ($read, $positions, $insert_q) {
 					try {
 						$result = $insert_q->execute($insert_params);
 						//print_r($insert_params);
+						$GLOBALS['found']++;
+						$GLOBALS['singleton']++;
 					} catch  (PDOException $ex) {die($ex);}
 					//echo "Stored read! \n";
 				}
 			}
-		$GLOBALS['found']++;
-		$GLOBALS['singleton']++;	 
+			 $GLOBALS['singleton']++;
 		break;    //end singletons.
 		default:
 		
@@ -45,19 +48,25 @@ function split_read ($read, $positions, $insert_q) {
 				break;
 			} //not an even list, ignore
 			$count_loop = 1;
-			print_r($positions);
-			while ($positions) {
+			$chunked_array = array_chunk($positions, 2, true);
+			//print_r ($chunked_array);
+			//die;
+			foreach ($chunked_array as $primer_info) {
 				//create "singleton" array 
-				$primer_info[0] =  array_shift($positions);
-				$primer_info[1] =  array_shift($positions);
-				$primer_pair_info = get_primer_info($primer_info);
+				//$primer_info1 =  array_shift($positions);
+				//$primer_info2 =  array_shift($positions);
+				//$primer_info = array_merge($primer_info1,$primer_info2);
+				//print_r($primer_info);
+				//die;
 				//echo "First = " .$first. " Second = " . $second ."\n";
+				$primer_pair_info = get_primer_info($primer_info);
 				//test to see if F and R not RR or FF
 			if ($primer_pair_info["first_dir"] != $primer_pair_info["sec_dir"]) {
 				//check location of first primer. If <50 probably at the start and not middle.
 				
 					
 					$length = $primer_pair_info["sec_loc"] - $primer_pair_info["first_loc"] +1;
+					
 					$read_num = get_read_num ($read['name']);
 					$seq = substr($read['sequence'], $primer_pair_info["first_loc"], $length);
 					//store read full length in output table.
@@ -73,15 +82,14 @@ function split_read ($read, $positions, $insert_q) {
 					try {
 						$result = $insert_q->execute($insert_params);
 						//print_r($insert_params);
+						$GLOBALS['found']++;
 					} catch  (PDOException $ex) {die($ex);}
 					//echo "Stored read! \n";
 				}
 			
 				$count_loop++;
-				$GLOBALS['found']++;
 			} //end while.
 			$GLOBALS['multiple']++;
-		
 			break;
 	}//end switch
 	//no return value.

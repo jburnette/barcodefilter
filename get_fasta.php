@@ -6,14 +6,14 @@
 
 //get primer numbers
 list($plate, $row, $column) = explode ("-",$_GET['cell']);
-//echo $plate ." " .$row ." ". $column;
+echo $plate ." " .$row ." ". $column;
 $rp = $row . '1';
 $fp = "A".$column;
 //$rp = "B1";
 //$fp = 'A1';
 //$plate = "A";
 //connect to Database
-$db = new PDO('sqlite:./databases/run5-4-2.sqlite'); 
+$db = new PDO('sqlite:../Databases/run5-4-2.sqlite'); 
 
 
 
@@ -35,7 +35,7 @@ try {
 }
 $fatsa ='';
 while($rows = $select_stmt->fetch()) {
-	$fasta .= $rows['fasta_id'] . "\n" .wordwrap($rows['seq'], 80, "\n", true) . "\n";
+	$fasta .= ">". $rows['fasta_id'] . "\n" .wordwrap($rows['seq'], 80, "\n", true) . "\n";
 }
 //echo $fasta;
 
