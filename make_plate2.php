@@ -3,6 +3,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+require ("functions.php");
 $db = new PDO('sqlite:../databases/run5-4-2.sqlite'); 
 //Get number of plates in table.
 $select_plates = "SELECT DISTINCT(plate_num) FROM output WHERE 1";
@@ -19,6 +20,8 @@ try {
 } catch (PODExecption $ex) {
 	die ($ex);
 }
+$well_labels = make_well_labels($well_file_names);   //list of file names
+
 $plates_array = array();
 $plate_num_array = array();
 while ($plate_fetch = $select_plates_stmt->fetch()) {

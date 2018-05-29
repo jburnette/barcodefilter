@@ -1,7 +1,7 @@
 <?php
 /****  Use BLAST to find primers.    ********/
 
-require ("./split_reads3.php");
+require ("./split_reads4.php");
 require ("functions.php");
 ini_set('memory_limit','300M');
 
@@ -45,21 +45,19 @@ while ($seq = $stmt->fetch()) {
 	$blast_result = blast_read($seq['sequence'], $primers);
 	//print_r($blast_result);	
 	foreach ($blast_result as $result) {
-		list($key, $pos1, $pos2, $length) = explode(",", $result);
+		list($key, $pos1, $pos2, $length, $send, $sstart) = explode(",", $result);
 		#echo ($key. $pos1. $pos2);
-		$positions[$pos1] = array ($pos2, $key);
+		$positions[$pos1] = array ($pos2, $key, $length, $send, $sstart);
 		asort($positions);
 		//print_r($positions);
 		//print_r(array_keys($positions));	
 	}
 	//print_r($positions);
-	if ($length>20) {
 		split_read($seq, $positions, $insert_stm);
 		$count++;
 		echo ($count . "\n");
-	}
 } //end sequence while loop
-
+$db = null; 		//close database connection.
 echo "Total sequence count = " . $count . "\n". 
 "Singles = " . $GLOBALS['singleton'] ."\n". 
 "Multpiles = " . $GLOBALS['multiple'] ."\n".
