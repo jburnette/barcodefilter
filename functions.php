@@ -43,29 +43,19 @@ function get_read_num ($comment) {
 }
 
 
-function make_well_labels($file_names) {
+function make_well_labels($file_name) {
 	//$file_names is a list of files to process
 	$well_names = array();	
-	foreach ($file_names as $file) {
-		$file_h = fopen($file, "w");
-		while ($line = fread($file_h)) {
-			
-		
-		
-		
-		
-		
-		}
-	
-	
-	
-	
-	
+	$file_h = fopen($file_name, "r");
+	while ($line = fgets($file_h)) {
+		trim($line);
+		list($plate, $well, $name) = explode(",", $line);		
+		$well_names[$plate][$well] = $name;
 	}
-
-
-
-
+	fclose($file_h);
+	//print_r($well_names);
+	//die();
+	return $well_names;
 }
 
 
@@ -79,5 +69,8 @@ $primer_file = "plate_primers.fasta";
 $test = blast_read($read, $primer_file);
 print_r($test);
 ***/
+
+//$file = "../spring_2018/all_plates.csv";
+//make_well_labels($file);
 
 ?>

@@ -1,12 +1,12 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+//ini_set('display_errors', 1);
+//ini_set('display_startup_errors', 1);
+//error_reporting(E_ALL);
 require ("functions.php");
-$db = new PDO('sqlite:../databases/run5-4-2.sqlite'); 
+$db = new PDO('sqlite:../databases/spring2018_2.sqlite'); 
 //Get number of plates in table.
-$select_plates = "SELECT DISTINCT(plate_num) FROM output WHERE 1";
+$select_plates = "SELECT DISTINCT(plate_num) FROM output WHERE 1 ORDER BY plate_num";
 try {
 	$select_plates_stmt = $db->prepare($select_plates);
 	$result = $select_plates_stmt->execute();
@@ -20,6 +20,7 @@ try {
 } catch (PODExecption $ex) {
 	die ($ex);
 }
+$well_file_names="../spring_2018/all_plates.csv";
 $well_labels = make_well_labels($well_file_names);   //list of file names
 
 $plates_array = array();
@@ -39,7 +40,7 @@ while ($plate_fetch = $select_plates_stmt->fetch()) {
 			$table .= "<td style'width:300px'>";
 			$table_num .= "<td style'width:300px'>";
 			//$table .= "<input type='text' name='".$plate. '-' .$col_num. '-'. $row_letter ."' size='4' value='".$plate. '-' .$col_num. '-'. $row_letter ."'> ";	
-			$table .= "<a href=" .'./get_fasta.php?cell=' .$plate. '-' .$col_num. '-'. $row_letter ." target='_blank'>&nbsp&nbsp&nbsp".$col_num . $row_letter ."&nbsp&nbsp&nbsp&nbsp</a> </td>";	
+			$table .= "<a href=" .'./get_fasta2.php?cell=' .$plate. '-' .$col_num. '-'. $row_letter ." target='_blank'>&nbsp". $well_labels[$plate][$col_num . $row_letter] ."&nbsp</a> </td>";	
 			//get count of sequences
 			$params = array(
 				":plate" => $plate,
