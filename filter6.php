@@ -1,7 +1,7 @@
 <?php
 /****  Use BLAST to find primers.    ********/
 
-require ("./split_reads4.php");
+require ("./split_reads5.php");
 require ("functions.php");
 ini_set('memory_limit','300M');
 
@@ -10,7 +10,7 @@ $primers = 'plate_primers.fasta';
 /**
 	DB array [id][comment][sequence]
 **/
-$db = new PDO('sqlite:../Databases/run5-4-2.sqlite');
+$db = new PDO('sqlite:../Databases/spring2018_2.sqlite');
 $select = "SELECT * FROM seqs";
 //$select = "SELECT * FROM seqs WHERE id IN (94347, 96349, 96351, 96394)";
 //$select = "SELECT * FROM seqs WHERE id =96351";

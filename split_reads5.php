@@ -10,7 +10,7 @@ function split_read ($read, $positions, $insert_q) {
 			break;
 		case 2: 
 			$primer_pair_info = get_primer_info($positions);
-		
+			if ($primer_pair_info['plate_letter1'] != $primer_pair_info['plate_letter2']) {break;}
 			//test to see if F and R not RR or FF
 			if ($primer_pair_info["first_dir"] != $primer_pair_info["sec_dir"]) {
 				if ($primer_pair_info["lengthF"] >= 10 and $primer_pair_info["lengthR"] >= 10 ) { //match high enough.
@@ -23,7 +23,7 @@ function split_read ($read, $positions, $insert_q) {
 					$seq = substr($read['sequence'], $primer_pair_info["first_loc"], $length);
 					//store read full length in output table.
 					$insert_params = array(
-						"plate_num" => $primer_pair_info["plate_letter"],
+						"plate_num" => $primer_pair_info["plate_letter1"],
 						"rp" => $primer_pair_info["R"],
 						"fp" => $primer_pair_info["F"],
 						"fasta_id" => $read_num,
@@ -63,6 +63,7 @@ function split_read ($read, $positions, $insert_q) {
 				//die;
 				//echo "First = " .$first. " Second = " . $second ."\n";
 				$primer_pair_info = get_primer_info($primer_info);
+				if ($primer_pair_info['plate_letter1'] != $primer_pair_info['plate_letter2']) {break;}
 				//test to see if F and R not RR or FF
 				//echo $primer_pair_info["lengthF"] . " primerpair " . $primer_pair_info["lengthR"] . "\n";
 			if ($primer_pair_info["first_dir"] != $primer_pair_info["sec_dir"]) {
@@ -74,7 +75,7 @@ function split_read ($read, $positions, $insert_q) {
 					$seq = substr($read['sequence'], $primer_pair_info["first_loc"], $length);
 					//store read full length in output table.
 					$insert_params = array(
-						"plate_num" => $primer_pair_info["plate_letter"],
+						"plate_num" => $primer_pair_info["plate_letter1"],
 						"rp" => $primer_pair_info["R"],
 						"fp" => $primer_pair_info["F"],
 						"fasta_id" => $read_num . "_". $count_loop,
@@ -111,7 +112,8 @@ $primers = array(
 		"sec_loc" => "",			//Beginning primer 2 location -1
 		"F" => "",				//F Primer name
 		"R" => "",				//R Primer name
-		"plate_letter" => "",
+		"plate_letter1" => "",
+		"plate_letter2" => "",
 		"lengthF" =>"",
 		"lengthR" =>"",
 	);
@@ -144,8 +146,9 @@ $primers = array(
 		//echo $primers["lengthR"] . " ";
 
 	}
-	$primers["plate_letter"] = substr($primer1[1], 1,1);
+	$primers["plate_letter1"] = substr($primer1[1], 1,1);
 	$primer2 = array_shift($primer_pair);
+	$primers["plate_letter2"] = substr($primer2[1], 1,1);
 //print_r($primer2);
 	//die();
 	$primers["sec_dir"] = substr($primer2[1], 0,1);

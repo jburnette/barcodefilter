@@ -3,7 +3,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-$db = new PDO('sqlite:../databases/run5-4-2.sqlite'); 
+$db = new PDO('sqlite:../Databases/spring2018_2.sqlite'); 
 //Get number of plates in table.
 $select_plates = "SELECT DISTINCT(plate_num) FROM output WHERE 1 ORDER BY plate_num";
 try {

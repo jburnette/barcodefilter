@@ -1,5 +1,6 @@
 <?php
 require ("./split_reads2.php");
+require ("./functions.php");
 ini_set('memory_limit','300M');
 function primer_array($file_name) {
  	$file = fopen("./$file_name", "r") or die ("Cannot open primer file");
@@ -23,7 +24,7 @@ function primer_array($file_name) {
 /**
 	DB array [id][comment][sequence]
 **/
-$db = new PDO('sqlite:../Databases/run5-4-2.sqlite');
+$db = new PDO('sqlite:../Databases/spring2018.sqlite');
 $select = "SELECT * FROM seqs";
 try {
 	$stmt = $db->prepare($select);
@@ -102,7 +103,7 @@ while ($seq = $stmt->fetch()) {
 	//echo "Name " . $seq['name'] ."\n";
 	split_read($seq, $primer_pos, $insert_stm);
 	$count++;
-	echo "sequence count = " . $count . "\n";
+	echo  $count . "\n";
 	//echo "Loop count = " . $count . " FP=" . $num_fps_found .  "RP=" . $num_rps_found . " Found= ". $found . "\n";
 	
 } //end sequence while loop

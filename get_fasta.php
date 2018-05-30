@@ -13,7 +13,7 @@ $fp = "A".$column;
 //$fp = 'A1';
 //$plate = "A";
 //connect to Database
-$db = new PDO('sqlite:../Databases/run5-4-2.sqlite'); 
+$db = new PDO('sqlite:../Databases/spring2018_2.sqlite'); 
 
 
 
