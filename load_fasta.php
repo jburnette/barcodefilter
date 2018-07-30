@@ -2,10 +2,10 @@
 /** load fasta file into sqlite3 table.
 **/
 
-$db = new PDO('sqlite:../Databases/spring2018.sqlite');
+$db = new PDO('sqlite:../Databases/salsa_2018_1.db');
 $db->exec("CREATE TABLE  seqs (id INTEGER PRIMARY KEY, name TEXT, sequence TEXT)");
 
-$file_name = "../spring_2018/spring_2018.fasta";
+$file_name = "../spring_2018/salsa_2018_1_smrt1.fasta";
 $file = fopen($file_name, "r");
 $stmt='';
 $insert_stm = "INSERT INTO seqs (name, sequence) VALUES (:comment, :seq)";

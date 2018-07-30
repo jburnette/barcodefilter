@@ -1,8 +1,8 @@
 <?php
 
-//ini_set('display_errors', 1);
-//ini_set('display_startup_errors', 1);
-//error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require ("functions.php");
 $db = new PDO('sqlite:../databases/spring2018_2.sqlite'); 
 //Get number of plates in table.
@@ -40,7 +40,7 @@ while ($plate_fetch = $select_plates_stmt->fetch()) {
 			$table .= "<td style'width:300px'>";
 			$table_num .= "<td style'width:300px'>";
 			//$table .= "<input type='text' name='".$plate. '-' .$col_num. '-'. $row_letter ."' size='4' value='".$plate. '-' .$col_num. '-'. $row_letter ."'> ";	
-			$table .= "<a href=" .'./get_fasta2.php?cell=' .$plate. '-' .$col_num. '-'. $row_letter ." target='_blank'>&nbsp". $well_labels[$plate][$col_num . $row_letter] ."&nbsp</a> </td>";	
+			$table .= "<a href=" .'./get_fasta2_collapser.php?cell=' .$plate. '-' .$col_num. '-'. $row_letter ." target='_blank'>&nbsp". $well_labels[$plate][$col_num . $row_letter] ."&nbsp</a> </td>";	
 			//get count of sequences
 			$params = array(
 				":plate" => $plate,

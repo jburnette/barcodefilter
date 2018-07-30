@@ -1,16 +1,16 @@
 <?php
 /****  Use BLAST to find primers.    ********/
 
-require ("./split_reads5.php");
+require ("./split_reads7.php");
 require ("functions.php");
 ini_set('memory_limit','300M');
 
-$primers = 'plate_primers.fasta';
+$primers = 'all_pacbio_barcodes.fasta';
 //Open fasta DB of reads
 /**
 	DB array [id][comment][sequence]
 **/
-$db = new PDO('sqlite:../Databases/run5-4-3.sqlite');
+$db = new PDO('sqlite:../Databases/salsa_2018_1.db');
 $select = "SELECT * FROM seqs";
 //$select = "SELECT * FROM seqs WHERE id IN (94347, 96349, 96351, 96394)";
 //$select = "SELECT * FROM seqs WHERE id =96351";
@@ -19,12 +19,15 @@ try {
 	$result = $stmt->execute();
 } catch (PDOException $ex) {die($ex);}
 //set up insert statment for sequences with 2 primers
-$insert = "INSERT INTO output (plate_num, rp, fp, fasta_id, seq) VALUES (:plate_num, :rp, :fp, :fasta_id, :seq)";
+$insert = "INSERT INTO output (rp, fp, fasta_id, seq) VALUES (:rp, :fp, :fasta_id, :seq)";
 try {
 	$insert_stm = $db->prepare($insert);
 } catch (PDOException $ex) {die($ex);}
-
-
+//set up select statment for primer table
+$primer_select = "SELECT * FROM PacBioBarcodedPrimers WHERE Name = :name";
+try {
+	$primer_select_stm = $db->prepare($primer_select);
+} catch (PDOException $ex) {die($ex);}
 
 /** New strategy
 
@@ -53,7 +56,7 @@ while ($seq = $stmt->fetch()) {
 		//print_r(array_keys($positions));	
 	}
 	//print_r($positions);
-		split_read($seq, $positions, $insert_stm);
+		split_read($seq, $positions, $insert_stm, $primer_select_stm);
 		$count++;
 		echo ($count . "\n");
 } //end sequence while loop

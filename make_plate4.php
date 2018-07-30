@@ -1,47 +1,81 @@
 <?php
-
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-$db = new PDO('sqlite:../Databases/run5-4-3.sqlite'); 
-//Get number of plates in table.
-$select_plates = "SELECT DISTINCT(plate_num) FROM output WHERE 1 ORDER BY plate_num";
+$database = "salsa_2018_1.db";
+require ("functions.php");
+$db = new PDO('sqlite:../databases/'.$database);
+//Get plate names
+$select_plates = "SELECT DISTINCT(plate_name) FROM primers WHERE 1 ORDER BY plate_name";
 try {
 	$select_plates_stmt = $db->prepare($select_plates);
 	$result = $select_plates_stmt->execute();
 }   catch (PODExecption $ex) {
 	die ($ex);
 }
-$select_num_seqs = "SELECT COUNT(*) FROM output WHERE output.plate_num = :plate AND output.rp = :rp AND output.fp = :fp";
-//echo "$";
+//prepare statement to count number of sequences
+$select_num_seqs = "SELECT COUNT(*) FROM output WHERE output.rp = :rp AND output.fp = :fp";
+
 try {
 	$select_num_seqs_stmt = $db->prepare($select_num_seqs);
 } catch (PODExecption $ex) {
 	die ($ex);
 }
+//prepare select statemnt for primer names.
+$primer_stmt = "SELECT primer_name FROM primers WHERE plate_name = :plate AND direction = :dir";
+try {
+	$primer_stmt_h = $db->prepare($primer_stmt);
+} catch (PDOExecption $ex) {
+	die ($ex);
+}
+
+/**make well labels (if have file).  Add back later
+$well_file_names="../spring_2018/all_plates.csv";
+$well_labels = make_well_labels($well_file_names);   //list of file names
+**/
+
 $plates_array = array();
 $plate_num_array = array();
 while ($plate_fetch = $select_plates_stmt->fetch()) {
-//echo "!";
-	$plate = $plate_fetch['plate_num'];
+	$plate = $plate_fetch['plate_name'];
+	
+	//get forward primers
+	$params = array(":plate"=>$plate, ":dir"=>"F");
+	try {
+		$result = $primer_stmt_h->execute($params);	
+	} catch (PDOExecption $ex) {
+		die ($ex);
+	}
+	$for_p = $primer_stmt_h->fetchAll();
+	$params = array(":plate"=>$plate, ":dir"=>"R");
+	try {
+		$result = $primer_stmt_h->execute($params);	
+	} catch (PDOExecption $ex) {
+		die ($ex);
+	}
+	$rev_p = $primer_stmt_h->fetchAll();
 	$table_num = '';
 	$table = '';
 	$col_num ='A';
 	$plate_num_array = array();
 	while ($col_num < "I") { 
 		$row_letter = '1';
+		$col_number = toNumber($col_num) - 1; 	//converts letter to number for array use.
+		$rp = $rev_p[$col_number]["primer_name"];
 		$table .= "<tr><td><b>".$col_num."</b></td>";
 		$table_num .= "<tr><td><b>".$col_num."</b></td>";
 		while ($row_letter < "13") {
+			$row_num = $row_letter - 1;
+			$fp = $for_p[$row_num]["primer_name"];;
 			$table .= "<td style'width:300px'>";
 			$table_num .= "<td style'width:300px'>";
 			//$table .= "<input type='text' name='".$plate. '-' .$col_num. '-'. $row_letter ."' size='4' value='".$plate. '-' .$col_num. '-'. $row_letter ."'> ";	
-			$table .= "<a href=" .'./get_fasta3.php?cell=' .$plate. '-' .$col_num. '-'. $row_letter ." target='_blank'>&nbsp&nbsp&nbsp".$col_num . $row_letter ."&nbsp&nbsp&nbsp&nbsp</a> </td>";	
+			//$table .= "<a href=" .'./get_fasta2_collapser.php?cell=' .$plate. '-' .$col_num. '-'. $row_letter ." target='_blank'>&nbsp". $well_labels[$plate][$col_num . $row_letter] ."&nbsp</a> </td>";	
+			$table .= "<a href=" .'./get_fasta4.php?plate=' .$plate. '&forward=' .$fp. '&reverse='. $rp. '&db='. $database ." target='_blank'>&nbsp" .$fp. '-'. $rp ."&nbsp</a> </td>";	
 			//get count of sequences
 			$params = array(
-				":plate" => $plate,
-				":rp" => $col_num . "1",
-				":fp" => 'A'.$row_letter
+				":rp" => $rp,
+				":fp" => $fp
 			);
 			//print_r($params);
 			try {
@@ -59,35 +93,6 @@ while ($plate_fetch = $select_plates_stmt->fetch()) {
 	$plates_num_array[$plate] = $table_num;
 	} #column num while
 }	//end plate while.
-//print_r($plates_num_array);
-
-//die();
-
-
-
-
-
-
-/**
-#Create table
-$table = '';
-$col_num ='A';
-$plate = "A";
-while ($col_num < "I") { 
-$row_letter = '1';
-$table .= "<tr><td><b>".$col_num."</b></td>";
-	while ($row_letter < "13") {
-		$table .= "<td style'width:300px'>";
-			//$table .= "<input type='text' name='".$plate. '-' .$col_num. '-'. $row_letter ."' size='4' value='".$plate. '-' .$col_num. '-'. $row_letter ."'> ";	
-			$table .= "<a href=" .'./get_fasta.php?cell=' .$plate. '-' .$col_num. '-'. $row_letter .">&nbsp&nbsp&nbsp".$col_num . $row_letter ."&nbsp&nbsp&nbsp&nbsp</a> ";	
-
-	$row_letter ++;
-	}
-	$table .= "</tr>";
-	$col_num ++;
-} #column num while
-**/
-
 ?>
 
 <html>

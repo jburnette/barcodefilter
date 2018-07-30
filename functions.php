@@ -24,7 +24,7 @@ function blast_read($read, $primer_file) {
 	#echo $seq_out . "\n";
 	file_put_contents("seq.fasta", $seq_out);
 	$blast_command = 'blastn -word_size 11 -query seq.fasta ';
-	$blast_command .= '-subject plate_primers.fasta -outfmt "10 sseqid qstart qend length send sstart"';
+	$blast_command .= '-subject all_pacbio_barcodes.fasta -outfmt "10 sseqid qstart qend length send sstart"';
 	$result = array();
 	exec($blast_command, $result);
 	//print_r($result);
@@ -58,6 +58,31 @@ function make_well_labels($file_name) {
 	return $well_names;
 }
 
+function primer_array($file_name) {
+ 	$file = fopen("./$file_name", "r") or die ("Cannot open primer file");
+	$primer_array = array();
+	while ($row = fgets($file)) {
+		$row = trim($row);
+		//string to array 
+		$tmp_array = explode("\t", $row);
+		//reverse complement primer 
+		$primer_rev = strrev(trim($tmp_array[2]));
+		$primer_rev_c = strtr($primer_rev, "AGCT", "TCGA");
+		$tmp_array[3] = $primer_rev_c;
+		array_push($primer_array, $tmp_array);
+	}
+	fclose($file);
+	return $primer_array;
+}
+
+function toNumber($dest)
+	//from: https://stackoverflow.com/questions/3580883/how-to-convert-some-character-into-numeric-in-php
+    {
+        if ($dest)
+            return ord(strtolower($dest)) - 96;
+        else
+            return 0;
+    }
 
 //Testing functions
 #get_read_num(">m180427_214944_42257R_c101419162550000001823307808281820_s1_p0/16827/ccs");

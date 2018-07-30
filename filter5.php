@@ -42,7 +42,7 @@ try {
 
 **/
 $f_primers = primer_array("./forward_primers_shorter.txt");
-$r_primers = primer_array("/reverse_primers_shorter.txt");
+$r_primers = primer_array("./reverse_primers_shorter.txt");
 
 
 /** New strategy

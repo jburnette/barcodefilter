@@ -5,25 +5,25 @@
 
 
 //get primer numbers
-list($plate, $row, $column) = explode ("-",$_GET['cell']);
-echo $plate ." " .$row ." ". $column;
-$rp = $row . '1';
-$fp = "A".$column;
+$plate = $_GET['plate'];
+$fp = $_GET['forward'];
+$rp = $_GET['reverse'];
+$database = $_GET['db'];
+
 //$rp = "B1";
 //$fp = 'A1';
 //$plate = "A";
 //connect to Database
-$db = new PDO('sqlite:../Databases/spring2018_2.sqlite'); 
+$db = new PDO('sqlite:../databases/'.$database); 
 
 
 
 
 //get sequences using primers
 //$select = "SELECT seqs.name, seqs.sequence FROM output JOIN seqs on output.fasta_id = seqs.id WHERE output.plate_num = :plate AND output.rp = :rp AND output.fp = :fp ";
-$select = "SELECT output.fasta_id, output.seq FROM output WHERE output.plate_num = :plate AND output.rp = :rp AND output.fp = :fp ";
+$select = "SELECT output.fasta_id, output.seq FROM output WHERE output.rp = :rp AND output.fp = :fp ";
 
 $params = array(
-	":plate" => $plate,
 	":rp" => $rp,
 	":fp" => $fp
 );
@@ -33,7 +33,7 @@ try {
 } catch (PODExecption $ex) {
 	die ($ex);
 }
-$fasta ='';
+$fatsa ='';
 while($rows = $select_stmt->fetch()) {
 	$fasta .= ">". $rows['fasta_id'] . "\n" .wordwrap($rows['seq'], 80, "\n", true) . "\n";
 }

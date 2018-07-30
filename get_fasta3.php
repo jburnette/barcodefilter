@@ -13,7 +13,7 @@ $fp = "A".$column;
 //$fp = 'A1';
 //$plate = "A";
 //connect to Database
-$db = new PDO('sqlite:../Databases/spring2018_2.sqlite'); 
+$db = new PDO('sqlite:../Databases/run5-4-3.sqlite'); 
 
 
 
@@ -33,7 +33,7 @@ try {
 } catch (PODExecption $ex) {
 	die ($ex);
 }
-$fasta ='';
+$fatsa ='';
 while($rows = $select_stmt->fetch()) {
 	$fasta .= ">". $rows['fasta_id'] . "\n" .wordwrap($rows['seq'], 80, "\n", true) . "\n";
 }

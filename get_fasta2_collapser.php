@@ -1,12 +1,11 @@
 <?php
-//ini_set('display_errors', 1);
-//ini_set('display_startup_errors', 1);
-//error_reporting(E_ALL);
-
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+$collapser_path = "./bin/fastx_collapser";
 //get primer numbers
 list($plate, $row, $column) = explode ("-",$_GET['cell']);
-echo $plate ." " .$row ." ". $column;
+#echo $plate ." " .$row ." ". $column;
 $rp = $row . '1';
 $fp = "A".$column;
 //$rp = "B1";
@@ -35,10 +34,21 @@ try {
 }
 $fasta ='';
 while($rows = $select_stmt->fetch()) {
-	$fasta .= ">". $rows['fasta_id'] . "\n" .wordwrap($rows['seq'], 80, "\n", true) . "\n";
+	#$fasta .= ">". $rows['fasta_id'] . "\n" .wordwrap($rows['seq'], 80, "\n", true) . "\n";
+	$fasta .= ">". $rows['fasta_id'] . "\n" .$rows['seq'] . "\n";
 }
 //echo $fasta;
+file_put_contents("/var/tmp/temp_out.fasta", $fasta);
+#$command = $collapser_path .  ' -i /var/tmp/temp_out.fasta -o /var/tmp/temp_in.fasta 2>&1';
+$command = $collapser_path .  ' -i /var/tmp/temp_out.fasta';
+#$command = $collapser_path . " -h";
+#echo $command;
 
+exec($command, $result);
+//print_r($result);
+$fastx = implode("\n", $result);
+
+//die();
 ?>
 <html>
 <head>
@@ -48,7 +58,7 @@ while($rows = $select_stmt->fetch()) {
 </head>
 <body>
 <pre>
-<?php echo $fasta; ?>
+<?php echo $fastx; ?>
 </pre>
 </body>
 </html>

@@ -1,10 +1,10 @@
 <?php
-
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-$db = new PDO('sqlite:../Databases/run5-4-3.sqlite'); 
-//Get number of plates in table.
+require ("functions.php");
+$db = new PDO('sqlite:../databases/salsa_2018_1.db');
+//Get plate names
 $select_plates = "SELECT DISTINCT(plate_num) FROM output WHERE 1 ORDER BY plate_num";
 try {
 	$select_plates_stmt = $db->prepare($select_plates);
@@ -12,36 +12,52 @@ try {
 }   catch (PODExecption $ex) {
 	die ($ex);
 }
-$select_num_seqs = "SELECT COUNT(*) FROM output WHERE output.plate_num = :plate AND output.rp = :rp AND output.fp = :fp";
-//echo "$";
+
+
+
+ 
+//prepare statement to count number of sequences
+$select_num_seqs = "SELECT COUNT(*) FROM output WHERE output.rp = :rp AND output.fp = :fp";
 try {
 	$select_num_seqs_stmt = $db->prepare($select_num_seqs);
 } catch (PODExecption $ex) {
 	die ($ex);
 }
+
+/**make well labels (if have file).  Add back later
+$well_file_names="../spring_2018/all_plates.csv";
+$well_labels = make_well_labels($well_file_names);   //list of file names
+**/
+$palte_names = array('A');
+$for_p = array("PB0001_M13F", "PB0002_M13F", "PB0003_M13F", "PB0004_M13F", "PB0005_M13F", "PB0006_M13F", "PB0007_M13F", "PB0008_M13F", "PB0009_M13F", "PB0010_M13F", "PB0011_M13F", "PB0012_M13F");
+$rev_p = array("PB0376_M13R", "PB0377_M13R", "PB0378_M13R", "PB0379_M13R", "PB0380_M13R", "PB0381_M13R", "PB0382_M13R", "PB0383_M13R");
+
 $plates_array = array();
 $plate_num_array = array();
-while ($plate_fetch = $select_plates_stmt->fetch()) {
-//echo "!";
-	$plate = $plate_fetch['plate_num'];
+while ($plate = array_shift($palte_names)) {
+
 	$table_num = '';
 	$table = '';
 	$col_num ='A';
 	$plate_num_array = array();
 	while ($col_num < "I") { 
 		$row_letter = '1';
+		$col_number = toNumber($col_num) - 1; 	//converts letter to number for array use.
+		$rp = $rev_p[$col_number];
 		$table .= "<tr><td><b>".$col_num."</b></td>";
 		$table_num .= "<tr><td><b>".$col_num."</b></td>";
 		while ($row_letter < "13") {
+			$row_num = $row_letter - 1;
+			$fp = $for_p[$row_num];
 			$table .= "<td style'width:300px'>";
 			$table_num .= "<td style'width:300px'>";
 			//$table .= "<input type='text' name='".$plate. '-' .$col_num. '-'. $row_letter ."' size='4' value='".$plate. '-' .$col_num. '-'. $row_letter ."'> ";	
-			$table .= "<a href=" .'./get_fasta3.php?cell=' .$plate. '-' .$col_num. '-'. $row_letter ." target='_blank'>&nbsp&nbsp&nbsp".$col_num . $row_letter ."&nbsp&nbsp&nbsp&nbsp</a> </td>";	
+			//$table .= "<a href=" .'./get_fasta2_collapser.php?cell=' .$plate. '-' .$col_num. '-'. $row_letter ." target='_blank'>&nbsp". $well_labels[$plate][$col_num . $row_letter] ."&nbsp</a> </td>";	
+			$table .= "<a href=" .'./get_fasta2_collapser.php?cell=' .$plate. '-' .$fp. '-'. $rp ." target='_blank'>&nbsp".$plate. '-' .$fp. '-'. $rp ."&nbsp</a> </td>";	
 			//get count of sequences
 			$params = array(
-				":plate" => $plate,
-				":rp" => $col_num . "1",
-				":fp" => 'A'.$row_letter
+				":rp" => $rp,
+				":fp" => $fp
 			);
 			//print_r($params);
 			try {
@@ -59,35 +75,6 @@ while ($plate_fetch = $select_plates_stmt->fetch()) {
 	$plates_num_array[$plate] = $table_num;
 	} #column num while
 }	//end plate while.
-//print_r($plates_num_array);
-
-//die();
-
-
-
-
-
-
-/**
-#Create table
-$table = '';
-$col_num ='A';
-$plate = "A";
-while ($col_num < "I") { 
-$row_letter = '1';
-$table .= "<tr><td><b>".$col_num."</b></td>";
-	while ($row_letter < "13") {
-		$table .= "<td style'width:300px'>";
-			//$table .= "<input type='text' name='".$plate. '-' .$col_num. '-'. $row_letter ."' size='4' value='".$plate. '-' .$col_num. '-'. $row_letter ."'> ";	
-			$table .= "<a href=" .'./get_fasta.php?cell=' .$plate. '-' .$col_num. '-'. $row_letter .">&nbsp&nbsp&nbsp".$col_num . $row_letter ."&nbsp&nbsp&nbsp&nbsp</a> ";	
-
-	$row_letter ++;
-	}
-	$table .= "</tr>";
-	$col_num ++;
-} #column num while
-**/
-
 ?>
 
 <html>
