@@ -23,7 +23,6 @@ function split_read ($read, $positions, $insert_q, $primer_sel_stm) {
 					$seq = substr($read['sequence'], $primer_pair_info["first_loc"], $length);
 					//store read full length in output table.
 					$insert_params = array(
-						"plate_num" => $primer_pair_info["plate_letter1"],
 						"rp" => $primer_pair_info["R"],
 						"fp" => $primer_pair_info["F"],
 						"fasta_id" => $read_num,
@@ -34,7 +33,6 @@ function split_read ($read, $positions, $insert_q, $primer_sel_stm) {
 					try {
 					
 						$result = $insert_q->execute($insert_params);
-						//print_r($insert_params);
 						$GLOBALS['found']++;
 						//echo "Singleton found!\n";
 						$GLOBALS['singleton']++;
@@ -74,7 +72,6 @@ function split_read ($read, $positions, $insert_q, $primer_sel_stm) {
 					$seq = substr($read['sequence'], $primer_pair_info["first_loc"], $length);
 					//store read full length in output table.
 					$insert_params = array(
-						"plate_num" => $primer_pair_info["plate_letter1"],
 						"rp" => $primer_pair_info["R"],
 						"fp" => $primer_pair_info["F"],
 						"fasta_id" => $read_num . "_". $count_loop,

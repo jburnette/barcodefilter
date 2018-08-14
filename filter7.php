@@ -5,12 +5,12 @@ require ("./split_reads7.php");
 require ("functions.php");
 ini_set('memory_limit','300M');
 
-$primers = 'all_pacbio_barcodes.fasta';
+//$primers = 'all_pacbio_barcodes.fasta';
 //Open fasta DB of reads
 /**
 	DB array [id][comment][sequence]
 **/
-$db = new PDO('sqlite:../Databases/salsa_2018_1.db');
+$db = new PDO('sqlite:../Databases/salsa_2018_2.db');
 $select = "SELECT * FROM seqs";
 //$select = "SELECT * FROM seqs WHERE id IN (94347, 96349, 96351, 96394)";
 //$select = "SELECT * FROM seqs WHERE id =96351";

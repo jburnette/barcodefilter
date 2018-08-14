@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-$database = "salsa_2018_1.db";
+$database = "salsa_2018_2.db";
 require ("functions.php");
 $db = new PDO('sqlite:../databases/'.$database);
 //Get plate names
