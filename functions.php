@@ -23,7 +23,7 @@ function blast_read($read, $primer_file) {
 	$seq_out = $comment.$read;
 	#echo $seq_out . "\n";
 	file_put_contents("seq.fasta", $seq_out);
-	$blast_command = 'blastn -word_size 11 -query seq.fasta ';
+	$blast_command = 'blastn -word_size 11 -reward 1 -query seq.fasta ';
 	$blast_command .= '-subject all_pacbio_barcodes.fasta -outfmt "10 sseqid qstart qend length send sstart"';
 	$result = array();
 	exec($blast_command, $result);
